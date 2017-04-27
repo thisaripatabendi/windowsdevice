@@ -1,0 +1,11 @@
+
+{
+  "deviceType": {
+    "label": "windowsdevice",
+    "category": "virtual",
+    "downloadAgentUri": "windowsdevice/device/download",
+    "scopes" : [
+      "perm:windowsdevice:enroll"
+    ]
+  }
+}
