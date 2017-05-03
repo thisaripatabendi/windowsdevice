@@ -1,0 +1,11 @@
+# windowsdevice
+windowsdevice sample for WSO2 IoT Server (IoTS) 3.1.0
+
+Installation & Running
+==================================
+
+1. Download the zip windowsdevice.
+2. Extract the downloaded zip file and copy it to <IoTS_HOME>/samples directory.
+3. Rename the folder as "windowsdevice"
+4. Configure the samples-deployer.xml.
+5. Strat the IOT server and now you can download the agent.
