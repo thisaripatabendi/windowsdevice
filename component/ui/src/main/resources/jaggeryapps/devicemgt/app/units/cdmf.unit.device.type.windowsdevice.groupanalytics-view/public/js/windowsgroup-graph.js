@@ -170,19 +170,6 @@ function drawGraph_windowsdevice(from, to)
 
             }
 
-            var devicecolor = null;
-            // TODO - pick a one color for one device to show in all graphs
-            for (var c = 0 ; c < colorcode.length ; c ++){
-                var color = getRandomColor();
-                if(colorcode.includes(color)){
-                    // the color is already used by a device
-                    devicecolor = color;
-                }else{
-                    // add the color to the colorcode
-                    colorcode.push(color);
-                }
-            }
-
             series.push({
                 color: getRandomColor(),
                 data: device,
