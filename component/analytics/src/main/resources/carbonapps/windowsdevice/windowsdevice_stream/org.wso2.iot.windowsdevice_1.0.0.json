@@ -6,6 +6,7 @@
   "metaData": [
     {"name":"owner","type":"STRING"},
     {"name":"deviceId","type":"STRING"},
+    {"name":"deviceName","type":"STRING"},
     {"name":"time","type":"LONG"}
   ],
   "payloadData": [

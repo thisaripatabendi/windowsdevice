@@ -21,8 +21,8 @@
   <Name>windowsbatterylevel_spark_script</Name>
   <Script>
     CREATE TEMPORARY TABLE DevicewindowsbatterylevelData USING CarbonAnalytics OPTIONS(tableName "ORG_WSO2_IOT_DEVICES_windowsbatterylevel");
-    CREATE TEMPORARY TABLE DevicewindowsbatterylevelSummaryData USING CarbonAnalytics OPTIONS (tableName "DEVICE_windowsbatterylevel_SUMMARY", schema "windowsbatterylevel FLOAT, deviceType STRING -i, deviceId STRING -i, owner STRING -i, time LONG -i",primaryKeys "deviceType, deviceId, owner, time");
-    insert overwrite table DevicewindowsbatterylevelSummaryData select windowsbatterylevel, meta_deviceType as deviceType, meta_deviceId as deviceId, meta_owner as owner, cast(meta_time as BIGINT)as time from DevicewindowsbatterylevelData group by windowsbatterylevel, meta_deviceType, meta_deviceId, meta_owner, cast(meta_time as BIGINT);
+    CREATE TEMPORARY TABLE DevicewindowsbatterylevelSummaryData USING CarbonAnalytics OPTIONS (tableName "DEVICE_windowsbatterylevel_SUMMARY", schema "windowsbatterylevel FLOAT, deviceType STRING -i, deviceId STRING -i, deviceName STRING -i, owner STRING -i, time LONG -i",primaryKeys "deviceType, deviceId, deviceName, owner, time");
+    insert overwrite table DevicewindowsbatterylevelSummaryData select windowsbatterylevel, meta_deviceType as deviceType, meta_deviceId as deviceId, meta_deviceName as deviceName, meta_owner as owner, cast(meta_time as BIGINT)as time from DevicewindowsbatterylevelData group by windowsbatterylevel, meta_deviceType, meta_deviceId, meta_deviceName, meta_owner, cast(meta_time as BIGINT);
   </Script>
   <CronExpression>0 * * * * ?</CronExpression>
 </Analytics>

@@ -45,6 +45,13 @@
 			<Type>STRING</Type>
 		</ColumnDefinition>
 		<ColumnDefinition>
+			<Name>meta_deviceName</Name>
+			<EnableIndexing>true</EnableIndexing>
+			<IsPrimaryKey>true</IsPrimaryKey>
+			<EnableScoreParam>false</EnableScoreParam>
+			<Type>STRING</Type>
+		</ColumnDefinition>
+		<ColumnDefinition>
 			<Name>meta_time</Name>
 			<EnableIndexing>true</EnableIndexing>
 			<IsPrimaryKey>true</IsPrimaryKey>

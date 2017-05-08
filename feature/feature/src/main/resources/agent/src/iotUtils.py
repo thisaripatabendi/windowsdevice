@@ -62,13 +62,14 @@ configParser.read(configFilePath)
 SERVER_NAME = "carbon.super"
 DEVICE_OWNER = configParser.get('Device-Configurations', 'owner')
 DEVICE_ID = configParser.get('Device-Configurations', 'deviceId')
+DEVICE_NAME = configParser.get('Device-Configurations', 'device-name')
 MQTT_EP = configParser.get('Device-Configurations', 'mqtt-ep')
 XMPP_EP = "http://204.232.188.215:5222"
 AUTH_TOKEN = configParser.get('Device-Configurations', 'auth-token')
 CONTROLLER_CONTEXT = configParser.get('Device-Configurations', 'controller-context')
 # MQTT_SUB_TOPIC = configParser.get('Device-Configurations', 'mqtt-sub-topic').format(owner = DEVICE_OWNER, deviceId = DEVICE_ID)
 # MQTT_PUB_TOPIC = configParser.get('Device-Configurations', 'mqtt-pub-topic').format(owner = DEVICE_OWNER, deviceId = DEVICE_ID)
-DEVICE_INFO = '{{"event":{{"metaData":{{"owner":"' + DEVICE_OWNER + '","type":"windowsdevice","deviceId":"' + DEVICE_ID + '","time":{}}},"payloadData":{{"windowsbatterylevel":{:.2f}, "windowsbatterystatus":{:.2f}, "windowscpuusage":{:.2f}}}}}}}'
+DEVICE_INFO = '{{"event":{{"metaData":{{"owner":"' + DEVICE_OWNER + '","type":"windowsdevice","deviceId":"' + DEVICE_ID + '","deviceName":"' + DEVICE_NAME + '","time":{}}},"payloadData":{{"windowsbatterylevel":{:.2f}, "windowsbatterystatus":{:.2f}, "windowscpuusage":{:.2f}}}}}}}'
 
 HTTPS_EP = configParser.get('Device-Configurations', 'https-ep')
 # HTTP_EP = configParser.get('Device-Configurations', 'http-ep')
