@@ -90,7 +90,7 @@ function drawGraph_windowsdevice(from, to)
                     x: parseInt(new Date().getTime() / 1000),
                     y: 0
                 }],
-                'name': $("#details").data("devicename")
+                'name': " "
             });
         graphConfigSensorType2['series'].push(
             {
@@ -99,7 +99,7 @@ function drawGraph_windowsdevice(from, to)
                     x: parseInt(new Date().getTime() / 1000),
                     y: 0
                 }],
-                'name': $("#details").data("devicename")
+                'name': " "
             });
             //cpuusage
         graphConfigSensorType3['series'].push(
@@ -109,7 +109,7 @@ function drawGraph_windowsdevice(from, to)
                     x: parseInt(new Date().getTime() / 1000),
                     y: 0
                 }],
-                'name': $("#details").data("devicename")
+                'name': " "
             });
     }
 
