@@ -7,7 +7,7 @@
 /* define streams/tables and write queries here ... */
 
 @Import('org.wso2.iot.windowsdevice:1.0.0')
-define stream windowsdevice (meta_owner string, meta_deviceId string, meta_deviceName string, meta_time long, windowsbatterylevel float, windowsbatterystatus float, windowscpuusage float);
+define stream windowsdevice (meta_owner string, meta_deviceId string, meta_deviceName string, meta_time long, windowsbatterylevel float, windowsbatterystatus float, windowscpuusage float, windowsmemoryspace float, windowsdiskspace float);
 
 @Export('org.wso2.iot.devices.windowsbatterylevel:1.0.0')
 define stream windowsbatterylevel (meta_owner string, meta_deviceType string, meta_deviceId string, meta_deviceName string, meta_time long, windowsbatterylevel float);
@@ -17,6 +17,12 @@ define stream windowsbatterystatus (meta_owner string, meta_deviceType string, m
 
 @Export('org.wso2.iot.devices.windowscpuusage:1.0.0')
 define stream windowscpuusage (meta_owner string, meta_deviceType string, meta_deviceId string, meta_deviceName string, meta_time long, windowscpuusage float);
+
+@Export('org.wso2.iot.devices.windowsmemoryspace:1.0.0')
+define stream windowsmemoryspace (meta_owner string, meta_deviceType string, meta_deviceId string, meta_deviceName string, meta_time long, windowsmemoryspace float);
+
+@Export('org.wso2.iot.devices.windowsdiskspace:1.0.0')
+define stream windowsdiskspace (meta_owner string, meta_deviceType string, meta_deviceId string, meta_deviceName string, meta_time long, windowsdiskspace float);
 
 from windowsdevice
 select meta_owner, 'windowsdevice' as meta_deviceType, meta_deviceId, meta_deviceName, meta_time * 1000 as meta_time, windowsbatterylevel
@@ -29,6 +35,14 @@ insert into windowsbatterystatus;
 from windowsdevice
 select meta_owner, 'windowsdevice' as meta_deviceType, meta_deviceId, meta_deviceName, meta_time * 1000 as meta_time, windowscpuusage
 insert into windowscpuusage;
+
+from windowsdevice
+select meta_owner, 'windowsdevice' as meta_deviceType, meta_deviceId, meta_deviceName, meta_time * 1000 as meta_time, windowsmemoryspace
+insert into windowsmemoryspace;
+
+from windowsdevice
+select meta_owner, 'windowsdevice' as meta_deviceType, meta_deviceId, meta_deviceName, meta_time * 1000 as meta_time, windowsdiskspace
+insert into windowsdiskspace;
 
 
 

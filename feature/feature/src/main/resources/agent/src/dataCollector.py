@@ -19,6 +19,7 @@
 **/
 """
 import os
+import psutil
 import subprocess
 
 import multiprocessing
@@ -70,3 +71,26 @@ def getCPUUsage():
     cpuusage = temp.split(']')[0]
 
     return int(cpuusage)
+
+def getMemorySpace():
+
+    virtual_available = float(psutil.virtual_memory().available)
+    swap_available = float(psutil.swap_memory().free)
+    memory_space = virtual_available / 1000000
+
+    return "%.2f" % round(memory_space, 2)
+
+def getDiskSpace():
+
+    backup = psutil.disk_usage('/').free
+
+    total = 0
+    for part in psutil.disk_partitions(all=False):
+        if os.name == 'nt':
+            if 'cdrom' in part.opts or part.fstype == '':
+                continue
+        usage = psutil.disk_usage(part.mountpoint)
+        total += float(usage.free)
+
+    disk_space = total / 1000000000
+    return "%.2f" % round(disk_space, 2)

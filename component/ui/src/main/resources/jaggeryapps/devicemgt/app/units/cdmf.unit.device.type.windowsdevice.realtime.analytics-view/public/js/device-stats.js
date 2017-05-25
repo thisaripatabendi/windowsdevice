@@ -19,12 +19,18 @@
 var wsConnection1;
 var wsConnection2;
 var wsConnection3;
+var wsConnection4;
+var wsConnection5;
 var graphForSensorType1;
 var graphForSensorType2;
 var graphForSensorType3;
+var graphForSensorType4;
+var graphForSensorType5;
 var chartDataSensorType1 = [];
 var chartDataSensorType2 = [];
 var chartDataSensorType3 = [];
+var chartDataSensorType4 = [];
+var chartDataSensorType5 = [];
 var palette = new Rickshaw.Color.Palette({scheme: "classic9"});
 function drawGraph(wsConnection, placeHolder, yAxis, chat, chartData, graph) {
     var tNow = new Date().getTime() / 1000;
@@ -87,7 +93,11 @@ $(window).load(function () {
         , graphForSensorType2);
     //cpuusage
     drawGraph(wsConnection3, "#div-chart-sensorType3", "yAxisSensorType3", "chartSensorType3", chartDataSensorType3
-            , graphForSensorType3);
+        , graphForSensorType3);
+    drawGraph(wsConnection4, "#div-chart-sensorType4", "yAxisSensorType4", "chartSensorType4", chartDataSensorType4
+        , graphForSensorType4);
+    drawGraph(wsConnection5, "#div-chart-sensorType5", "yAxisSensorType5", "chartSensorType5", chartDataSensorType5
+        , graphForSensorType5);
 });
 
 $(window).unload(function () {
@@ -95,6 +105,8 @@ $(window).unload(function () {
     disconnect(wsConnection2);
     //cpuusage
     disconnect(wsConnection3);
+    disconnect(wsConnection4);
+    disconnect(wsConnection5);
 });
 
 //websocket connection
@@ -116,11 +128,15 @@ function connect(wsConnection, target, chartData, graph, deviceId) {
             if(currentDevId == deviceId){
                 // if condition
                 if(dataPoint.event.payloadData.windowsbatterylevel !== undefined){
-                    value = value = dataPoint.event.payloadData.windowsbatterylevel;
+                    value = dataPoint.event.payloadData.windowsbatterylevel;
                 }else if (dataPoint.event.payloadData.windowsbatterystatus !== undefined){
-                    value = value = dataPoint.event.payloadData.windowsbatterystatus;
+                    value = dataPoint.event.payloadData.windowsbatterystatus;
+                }else if (dataPoint.event.payloadData.windowscpuusage !== undefined){
+                    value = dataPoint.event.payloadData.windowscpuusage;
+                }else if (dataPoint.event.payloadData.windowsmemoryspace !== undefined){
+                    value = dataPoint.event.payloadData.windowsmemoryspace;
                 }else{
-                    value = value = dataPoint.event.payloadData.windowscpuusage;
+                    value = dataPoint.event.payloadData.windowsdiskspace;
                 }
                 chartData.push({
                     x: parseInt(time) / 1000,

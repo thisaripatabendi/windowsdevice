@@ -22,10 +22,14 @@ var sensorType1 = "windowsbatterylevel";
 var sensorType2 = "windowsbatterystatus";
 //cpuusage
 var sensorType3 = "windowscpuusage";
+var sensorType4 = "windowsmemoryspace";
+var sensorType5 = "windowsdiskspace";
 var sensorType1Graph;
 var sensorType2Graph;
 //cpuusage
 var sensorType3Graph;
+var sensorType4Graph;
+var sensorType5Graph;
 
 function drawGraph_windowsdevice(from, to)
 {
@@ -90,6 +94,44 @@ function drawGraph_windowsdevice(from, to)
     };
 
     invokerUtil.get(backendApiUrl3, successCallback3, function (message) {
+        console.log(message);
+    });
+
+    //graph4
+    var chart4 = "chartSensorType4";
+    var backendApiUrl4 = $("#" + chart4 + "").data("backend-api-url") + "?from=" + from + "&to=" + to
+            + "&sensorType=" + sensorType4;
+    var successCallback4 = function (data) {
+        dataset = JSON.parse(data);
+
+        //graph3
+        var graphConfigSensorType4 = getGraphConfig(dataset, sensorType4, "chartSensorType4");
+        sensorType4Graph = new Rickshaw.Graph(graphConfigSensorType4);
+        drawGraph(sensorType4Graph, "sensorType4yAxis", "sensorType4Slider", "sensorType4Legend", sensorType4
+            , graphConfigSensorType4, "chartSensorType4");
+
+    };
+
+    invokerUtil.get(backendApiUrl4, successCallback4, function (message) {
+        console.log(message);
+    });
+
+    //graph5
+    var chart5 = "chartSensorType5";
+    var backendApiUrl5 = $("#" + chart5 + "").data("backend-api-url") + "?from=" + from + "&to=" + to
+            + "&sensorType=" + sensorType5;
+    var successCallback5 = function (data) {
+        dataset = JSON.parse(data);
+
+        //graph5
+        var graphConfigSensorType5 = getGraphConfig(dataset, sensorType5, "chartSensorType5");
+        sensorType5Graph = new Rickshaw.Graph(graphConfigSensorType5);
+        drawGraph(sensorType5Graph, "sensorType5yAxis", "sensorType5Slider", "sensorType5Legend", sensorType5
+            , graphConfigSensorType5, "chartSensorType5");
+
+    };
+
+    invokerUtil.get(backendApiUrl5, successCallback5, function (message) {
         console.log(message);
     });
 
@@ -162,8 +204,12 @@ function drawGraph_windowsdevice(from, to)
                     value = dataset[z].values.windowsbatterylevel;
                 }else if (placeHolder == "chartSensorType2"){
                     value = dataset[z].values.windowsbatterystatus;
-                }else{
+                }else if (placeHolder == "chartSensorType3"){
                     value = dataset[z].values.windowscpuusage;
+                }else if (placeHolder == "chartSensorType4"){
+                    value = dataset[z].values.windowsmemoryspace;
+                }else{
+                    value = dataset[z].values.windowsdiskspace;
                 }
 
                 value = parseFloat(value);value;

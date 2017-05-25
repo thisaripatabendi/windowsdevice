@@ -1,0 +1,21 @@
+{
+  "name": "org.wso2.iot.devices.windowsmemoryspace",
+  "version": "1.0.0",
+  "nickName": "windowsmemoryspace",
+  "description": "windowsmemoryspace data received from the Device",
+  "metaData": [
+    {"name":"owner","type":"STRING"},
+    {"name":"deviceType","type":"STRING"},
+    {"name":"deviceId","type":"STRING"},
+    {"name":"deviceName","type":"STRING"},
+    {"name":"time","type":"LONG"}
+  ],
+  "payloadData": [
+    {
+      "name": "windowsmemoryspace","type": "FLOAT"
+    }
+  ]
+}
+
+
+
