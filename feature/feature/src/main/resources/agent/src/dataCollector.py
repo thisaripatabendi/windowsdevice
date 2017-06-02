@@ -94,3 +94,10 @@ def getDiskSpace():
 
     disk_space = total / 1000000000
     return "%.2f" % round(disk_space, 2)
+
+def getLoadAverage():
+
+    average = os.getloadavg()
+    load_avg = float(str(average).split(", ")[0].replace("(", ""))
+
+    return "%.2f" % round(load_avg,2)

@@ -14,7 +14,8 @@
     {"name": "windowsbatterystatus", "type": "FLOAT"},
     {"name": "windowscpuusage", "type": "FLOAT"},
     {"name": "windowsmemoryspace", "type": "FLOAT"},
-    {"name": "windowsdiskspace", "type": "FLOAT"}
+    {"name": "windowsdiskspace", "type": "FLOAT"},
+    {"name": "windowsloadaverage", "type": "FLOAT"}
   ]
 }
 

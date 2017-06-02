@@ -42,6 +42,7 @@ public class DeviceTypeConstants {
     public static final String SENSOR_TYPE3_EVENT_TABLE = "ORG_WSO2_IOT_DEVICES_WINDOWSCPUUSAGE";
     public static final String SENSOR_TYPE4_EVENT_TABLE = "ORG_WSO2_IOT_DEVICES_WINDOWSMEMORYSPACE";
     public static final String SENSOR_TYPE5_EVENT_TABLE = "ORG_WSO2_IOT_DEVICES_WINDOWSDISKSPACE";
+    public static final String SENSOR_TYPE6_EVENT_TABLE = "ORG_WSO2_IOT_DEVICES_WINDOWSLOADAVERAGE";
 
     public static final String DATA_SOURCE_NAME = "jdbc/windowsdeviceDM_DB";
     public final static String DEVICE_TYPE_PROVIDER_DOMAIN = "carbon.super";
@@ -50,6 +51,7 @@ public class DeviceTypeConstants {
     public final static String SENSOR_TYPE3 = "windowscpuusage";
     public final static String SENSOR_TYPE4 = "windowsmemoryspace";
     public final static String SENSOR_TYPE5 = "windowsdiskspace";
+    public final static String SENSOR_TYPE6 = "windowsloadaverage";
 
     //mqtt tranport related constants
     public static final String MQTT_ADAPTER_NAME = "windowsbatterylevel_mqtt";

@@ -185,6 +185,8 @@ public class DeviceTypeServiceImpl implements DeviceTypeService {
             sensorTableName = DeviceTypeConstants.SENSOR_TYPE4_EVENT_TABLE;
         }else if(sensorType.equals(DeviceTypeConstants.SENSOR_TYPE5)){
             sensorTableName = DeviceTypeConstants.SENSOR_TYPE5_EVENT_TABLE;
+        }else if(sensorType.equals(DeviceTypeConstants.SENSOR_TYPE6)){
+            sensorTableName = DeviceTypeConstants.SENSOR_TYPE6_EVENT_TABLE;
         }
         try {
             if (sensorTableName != null) {
@@ -232,6 +234,8 @@ public class DeviceTypeServiceImpl implements DeviceTypeService {
             sensorTableName = DeviceTypeConstants.SENSOR_TYPE4_EVENT_TABLE;
         }else if(sensorType.equals(DeviceTypeConstants.SENSOR_TYPE5)){
             sensorTableName = DeviceTypeConstants.SENSOR_TYPE5_EVENT_TABLE;
+        }else if(sensorType.equals(DeviceTypeConstants.SENSOR_TYPE6)){
+            sensorTableName = DeviceTypeConstants.SENSOR_TYPE6_EVENT_TABLE;
         }
         try {
             if (!APIUtil.getDeviceAccessAuthorizationService().isUserAuthorized(new DeviceIdentifier(deviceId,

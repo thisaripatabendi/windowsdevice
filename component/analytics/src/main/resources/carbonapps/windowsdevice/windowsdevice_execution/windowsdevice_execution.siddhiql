@@ -7,7 +7,7 @@
 /* define streams/tables and write queries here ... */
 
 @Import('org.wso2.iot.windowsdevice:1.0.0')
-define stream windowsdevice (meta_owner string, meta_deviceId string, meta_deviceName string, meta_time long, windowsbatterylevel float, windowsbatterystatus float, windowscpuusage float, windowsmemoryspace float, windowsdiskspace float);
+define stream windowsdevice (meta_owner string, meta_deviceId string, meta_deviceName string, meta_time long, windowsbatterylevel float, windowsbatterystatus float, windowscpuusage float, windowsmemoryspace float, windowsdiskspace float, windowsloadaverage float);
 
 @Export('org.wso2.iot.devices.windowsbatterylevel:1.0.0')
 define stream windowsbatterylevel (meta_owner string, meta_deviceType string, meta_deviceId string, meta_deviceName string, meta_time long, windowsbatterylevel float);
@@ -23,6 +23,9 @@ define stream windowsmemoryspace (meta_owner string, meta_deviceType string, met
 
 @Export('org.wso2.iot.devices.windowsdiskspace:1.0.0')
 define stream windowsdiskspace (meta_owner string, meta_deviceType string, meta_deviceId string, meta_deviceName string, meta_time long, windowsdiskspace float);
+
+@Export('org.wso2.iot.devices.windowsloadaverage:1.0.0')
+define stream windowsloadaverage (meta_owner string, meta_deviceType string, meta_deviceId string, meta_deviceName string, meta_time long, windowsloadaverage float);
 
 from windowsdevice
 select meta_owner, 'windowsdevice' as meta_deviceType, meta_deviceId, meta_deviceName, meta_time * 1000 as meta_time, windowsbatterylevel
@@ -44,6 +47,9 @@ from windowsdevice
 select meta_owner, 'windowsdevice' as meta_deviceType, meta_deviceId, meta_deviceName, meta_time * 1000 as meta_time, windowsdiskspace
 insert into windowsdiskspace;
 
+from windowsdevice
+select meta_owner, 'windowsdevice' as meta_deviceType, meta_deviceId, meta_deviceName, meta_time * 1000 as meta_time, windowsloadaverage
+insert into windowsloadaverage;
 
 
 

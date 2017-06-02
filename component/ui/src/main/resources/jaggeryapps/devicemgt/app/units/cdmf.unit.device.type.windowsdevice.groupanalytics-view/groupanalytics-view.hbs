@@ -60,7 +60,7 @@
 
 <div id="chartDivSensorType4">
     <div class="chartWrapper" id="chartWrapper">
-        <span id="sensorType4Title">cpuusage</span>
+        <span id="sensorType4Title">memory space (MB)</span>
         <div id="sensorType4yAxis" class="custom_y_axis"></div>
         <div class="legend_container">
             <div id="smoother" title="Smoothing"></div>
@@ -73,7 +73,7 @@
 </div>
 <div id="chartDivSensorType5">
     <div class="chartWrapper" id="chartWrapper">
-        <span id="sensorType5Title">cpuusage</span>
+        <span id="sensorType5Title">disk space (MB)</span>
         <div id="sensorType5yAxis" class="custom_y_axis"></div>
         <div class="legend_container">
             <div id="smoother" title="Smoothing"></div>
@@ -82,6 +82,19 @@
         <div id="chartSensorType5" class="custom_rickshaw_graph" data-backend-api-url = {{backendApiUri}}></div>
         <div id="sensorType5xAxis" class="custom_x_axis"></div>
         <div id="sensorType5Slider" class="custom_slider"></div>
+    </div>
+</div>
+<div id="chartDivSensorType6">
+    <div class="chartWrapper" id="chartWrapper">
+        <span id="sensorType6Title">load average</span>
+        <div id="sensorType6yAxis" class="custom_y_axis"></div>
+        <div class="legend_container">
+            <div id="smoother" title="Smoothing"></div>
+            <div id="sensorType6Legend"></div>
+        </div>
+        <div id="chartSensorType6" class="custom_rickshaw_graph" data-backend-api-url = {{backendApiUri}}></div>
+        <div id="sensorType6xAxis" class="custom_x_axis"></div>
+        <div id="sensorType6Slider" class="custom_slider"></div>
     </div>
 </div>
 

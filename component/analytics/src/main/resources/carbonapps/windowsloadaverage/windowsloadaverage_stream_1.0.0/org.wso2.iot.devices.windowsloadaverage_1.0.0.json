@@ -1,0 +1,21 @@
+{
+  "name": "org.wso2.iot.devices.windowsloadaverage",
+  "version": "1.0.0",
+  "nickName": "windowsloadaverage",
+  "description": "windowsloadaverage data received from the Device",
+  "metaData": [
+    {"name":"owner","type":"STRING"},
+    {"name":"deviceType","type":"STRING"},
+    {"name":"deviceId","type":"STRING"},
+    {"name":"deviceName","type":"STRING"},
+    {"name":"time","type":"LONG"}
+  ],
+  "payloadData": [
+    {
+      "name": "windowsloadaverage","type": "FLOAT"
+    }
+  ]
+}
+
+
+
